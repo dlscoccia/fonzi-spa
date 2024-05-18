@@ -1,0 +1,38 @@
+<section>
+  <img
+    src="../../../../../assets/images/banner.jpg"
+    alt="dog grooming"
+    class="w-full h-1/2"
+  />
+
+  <h1 class="text-5xl font-bold text-blue-600 text-center mb-4">Nuestros servicios</h1>
+
+  <div class="w-full flex flex-wrap gap-20 my-10 px-20 justify-center">
+
+    <p-card
+    *ngFor="let service of servicesText"
+    [header]="service.name"
+    [subheader]="service.subTitle"
+    [style]="{ width: '400px' }"
+  >
+    <ng-template pTemplate="header">
+      <img
+        [alt]="service.name"
+        [src]="service.image"
+        class="w-full h-60 rounded-t-md"
+      />
+    </ng-template>
+    <p>{{service.description}}</p>
+    <ng-template pTemplate="footer">
+      <div class="flex gap-3 mt-1">
+        <p
+          class="w-full bg-gray-200 rounded py-2 text-center text-blue-600 text-lg font-bold"
+        >
+          {{service.price | currency }}
+        </p>
+        <app-service-card [item]="service"></app-service-card>
+      </div>
+    </ng-template>
+  </p-card>
+</div>
+</section>

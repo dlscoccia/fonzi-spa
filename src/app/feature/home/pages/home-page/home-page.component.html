@@ -1,0 +1,6 @@
+<main *ngIf="infoText">
+  <app-home-hero  [heroInfo]="infoText.hero" [heroBanner]="infoText.banner"/>
+  <app-home-info [infoText]="infoText.info"/>
+  <img src="../../../../../assets/images/cat-banner.jpg" alt="cat banner" class="w-full">
+  <app-home-contact-banner [contactInfo]="infoText.contact"></app-home-contact-banner>
+</main>

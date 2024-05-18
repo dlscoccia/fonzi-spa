@@ -1,0 +1,50 @@
+<p-sidebar [(visible)]="sidebarVisible">
+  <div *ngIf="currentUser; else notLogged" class="mb-6">
+    <p class="text-xl text-blue-700">Hola {{ currentUser.name }}!</p>
+  </div>
+  <ng-template #notLogged>
+    <p>No has iniciado sesión</p>
+  </ng-template>
+  <h3 class="text-xl text-blue-600 font-bold">Tus reservas:</h3>
+  <div
+    *ngIf="itemsInCart.length > 0; else emptyCart"
+    class="flex flex-col h-5/6 mt-4"
+  >
+    <div *ngFor="let item of itemsInCart; index as i" class="my-2">
+      <div>
+        <p class="text-lg font-bold text-blue-700">
+          {{ i + 1 }} - {{ item.name }}
+        </p>
+
+        <p class="text-gray-700">Cantidad: {{ item.numberGuests }}</p>
+        <p class="text-gray-400 font-bold">
+          Total: {{ item.total | currency }}
+        </p>
+        <hr class="text-gray-200" />
+      </div>
+    </div>
+    <div class="">
+      <p class="text-gray-800 font-bold my-4">
+        Tu total es: {{ totalAmount | currency }}
+      </p>
+      <button
+        class="bg-blue-500 text-white font-bold rounded-md px-4 py-2"
+        type="button"
+        (click)="handleReserve()"
+      >
+        Reservar
+      </button>
+    </div>
+  </div>
+  <ng-template #emptyCart> No has agregado nada al carrito </ng-template>
+</p-sidebar>
+
+<p-button
+  (click)="sidebarVisible = true"
+  label=""
+  icon="pi pi-cart-plus text-xl"
+  [badge]="itemsInCart.length"
+  badgeClass="p-badge-contrast"
+  outlined="true"
+  class="w-4"
+/>

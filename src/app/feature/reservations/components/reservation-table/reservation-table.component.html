@@ -1,0 +1,180 @@
+<p-table [value]="reservations" *ngIf="reservations">
+  <ng-template pTemplate="header">
+    <tr>
+      <th class="text-center" id="#name">Nombre</th>
+      <th class="text-center" id="#name">Macotas</th>
+      <th class="text-center" id="#date">Día</th>
+      <th class="text-center" id="#date">Hora</th>
+      <th class="text-center" id="#total">Total</th>
+      <th class="text-center" id="#action"></th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-rowData>
+    <tr>
+      <td class="text-center">{{ rowData.name }}</td>
+      <td class="text-center">{{ rowData.numberGuests }}</td>
+      <td class="text-center">{{ rowData.date | date : 'shortDate' }}</td>
+      <td class="text-center">{{ rowData.time }}</td>
+      <td class="text-center">{{ rowData.total | currency }}</td>
+      <td class="text-center flex gap-2">
+        <button (click)="handleModal('edit')">
+          <i class="pi pi-pencil text-blue-700"></i>
+        </button>
+        <button (click)="handleModal('cancel')">
+          <i class="pi pi-times text-red-500"></i>
+        </button>
+      </td>
+    </tr>
+    <p-dialog
+      [(visible)]="editVisible"
+      [modal]="true"
+      [style]="{ width: '50vw' }"
+      [draggable]="false"
+      [resizable]="false"
+    >
+      <h1 class="text-2xl text-blue-700 font-bold text-center">
+        ¿Desea reagendar su cita?
+      </h1>
+      <div class="card flex justify-content-center">
+        <form
+          autocomplete="off"
+          [formGroup]="myForm"
+          (ngSubmit)="handleSubmit(rowData, 'edit')"
+          class="flex flex-col gap-2 w-full"
+        >
+          <div class="flex flex-col justify-between px-4 gap-4">
+            <div>
+              <h2 class="text-blue-800 text-xl my-3 font-bold">Cita actual:</h2>
+              <div class="flex flex-col justify-between">
+                <p>Fecha: {{ rowData.date | date : 'shortDate' }}</p>
+                <p>Hora: {{ rowData.time }}</p>
+              </div>
+            </div>
+            <h2 class="text-blue-800 text-xl font-bold">Cita nueva:</h2>
+            <div class="flex gap-2 justify-between">
+              <div class="card flex flex-col" validar validacionInicial="false">
+                <label for="number-input">Fecha:</label>
+                <p-calendar
+                  formControlName="date"
+                  appendTo="body"
+                  [touchUI]="true"
+                  [disabledDays]="[1]"
+                  [baseZIndex]="100"
+                  [validacionInicial]="false"
+                  [minDate]="minDate"
+                  [showIcon]="true"
+                  [errores]="{ required: 'La fecha es obligatoria' }"
+                ></p-calendar>
+              </div>
+            </div>
+            <div
+              class="flex flex-wrap justify-center items-center gap-2"
+              *ngIf="myForm.value.date"
+            >
+              <div
+                *ngFor="let times of validDates"
+                class="field-checkbox"
+                validar
+              >
+                <p-radioButton
+                  [inputId]="times.key"
+                  [value]="times"
+                  formControlName="time"
+                  [validacionInicial]="false"
+                  [disabled]="handleTakenDates()"
+                  disabled="true"
+                ></p-radioButton>
+                <label [for]="times.key" class="ml-2">{{ times.name }}</label>
+              </div>
+            </div>
+            <div class="flex justify-between flex-wrap items-end flex-col mt-">
+              <p class="text-2xl text-blue-800 font-bold">
+                Total:
+                <span>{{
+                  handleTotal(rowData.date, rowData.total) | currency
+                }}</span>
+              </p>
+              <span *ngIf="rechargedTotal" class="text-red-600"
+                >Recargo por cambio sin anticipación!</span
+              >
+            </div>
+          </div>
+          <div
+            class="card flex flex-col justify-content-center"
+            validar
+            validacionInicial="false"
+          >
+            <label for="number-input">Observaciones:</label>
+            <textarea
+              rows="5"
+              cols="30"
+              pInputTextarea
+              formControlName="observations"
+              placeholder="Ingrese lo que debamos tener en cuenta..."
+            ></textarea>
+          </div>
+          <div class="flex justify-center items-center gap-2 mt-5">
+            <button
+              class="bg-gray-500 text-white font-bold rounded-md px-4 py-2"
+              type="button"
+            >
+              Cancelar
+            </button>
+            <button
+              class="bg-blue-500 text-white font-bold rounded-md px-4 py-2"
+              type="submit"
+            >
+              Agregar
+            </button>
+          </div>
+          <button>
+            <p
+              class="text-blue-700 underline mt-3"
+              tooltipPosition="top"
+              pTooltip="Se aplicará un recargo del 20% por cambios realizados con menos de 48 horas de anticipación"
+            >
+              Terminos y condiciones*
+            </p>
+          </button>
+        </form>
+      </div>
+    </p-dialog>
+    <p-dialog
+      [(visible)]="cancelVisible"
+      [modal]="true"
+      [style]="{ width: '50vw' }"
+      [draggable]="false"
+      [resizable]="false"
+    >
+      <h1 class="text-2xl text-blue-700 font-bold text-center">
+        ¿Desea cancelar su cita?
+      </h1>
+      <div class="flex justify-center mt-2">
+        <span *ngIf="rechargedTotal" class="text-red-600 text-center"
+          >Reembolso no aplica para esta cancelación!</span
+        >
+      </div>
+      <div class="flex justify-center items-center gap-2 mt-10">
+        <button
+          class="bg-gray-500 text-white font-bold rounded-md px-4 py-2"
+          type="button"
+        >
+          Atras
+        </button>
+        <button
+          class="bg-blue-500 text-white font-bold rounded-md px-4 py-2 hover:bg-red-600"
+          type="submit"
+        >
+          Cancelar
+        </button>
+      </div>
+      <p
+        class="text-blue-700 underline mt-3 text-center"
+        tooltipPosition="top"
+        pTooltip="No se realizara reembolso en caso de cancelación de citas con menos de 48 horas de anticipación."
+      >
+        Terminos y condiciones*
+      </p>
+    </p-dialog>
+  </ng-template>
+</p-table>

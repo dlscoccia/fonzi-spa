@@ -1,0 +1,15 @@
+<div class="surface-section px-4 py-20 md:px-6 lg:px-8 text-center">
+    <div class="mb-3 font-bold text-3xl mb-10">
+        <p class="text-900">{{infoText.title}}</p>
+        <p class="text-blue-600">{{infoText.subTitle}}</p>
+    </div>
+    <div class="flex flex-wrap mt-10">
+        <div *ngFor="let option of infoText.options" class="col-12 md:col-4 mb-4 px-5">
+            <span class="p-3 shadow-2 mb-3 inline-block surface-card" style="border-radius: 10px">
+                <i class="text-4xl text-blue-500" [ngClass]="option.icon"></i>
+            </span>
+            <div class="text-900 text-xl mb-3 font-medium">{{option.title}}</div>
+            <span class="text-700 line-height-3">{{option.description}}</span>
+        </div>
+    </div>
+</div>

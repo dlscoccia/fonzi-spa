@@ -1,0 +1,110 @@
+<p-button (click)="showDialog()" label="Reservar" />
+<p-dialog
+  [header]="item.name"
+  [(visible)]="visible"
+  [style]="{ width: '700px', height: '700px' }"
+  class="mx-2"
+>
+  <span class="p-text-secondary block mb-5"
+    >Ingrese la información para agregar el servicio:</span
+  >
+  <div class="card flex justify-content-center">
+    <form
+      autocomplete="off"
+      [formGroup]="myForm"
+      (ngSubmit)="handleSubmit()"
+      class="flex flex-col gap-2 w-full"
+    >
+      <div class="flex flex-col justify-between items-center px-4 gap-4">
+        <div class="flex gap-3">
+          <div class="flex flex-col" validar>
+            <label for="number-input">Número de mascotas:</label>
+            <p-inputNumber
+              inputId="minmax"
+              mode="decimal"
+              [min]="0"
+              [max]="100"
+              [showButtons]="true"
+              formControlName="numberGuests"
+              [validacionInicial]="false"
+            />
+          </div>
+          <div class="card flex flex-col" validar validacionInicial="false">
+            <label for="number-input">Fecha:</label>
+            <p-calendar
+              formControlName="date"
+              appendTo="body"
+              [touchUI]="true"
+              [disabledDays]="[1]"
+              [baseZIndex]="100"
+              [showIcon]="true"
+              [validacionInicial]="false"
+              [minDate]="minDate"
+              [locale]="'es-Es'"
+              [errores]="{ required: 'La fecha es obligatoria' }"
+            ></p-calendar>
+          </div>
+        </div>
+
+        <div
+          class="flex flex-wrap justify-evenly items-center gap-2"
+          *ngIf="myForm.value.date"
+        >
+          <div *ngFor="let times of validDates" class="field-checkbox" validar>
+            <p-radioButton
+              [inputId]="times.key"
+              [value]="times"
+              formControlName="time"
+              [validacionInicial]="false"
+              [disabled]="handleTakenDates()"
+              disabled="true"
+            ></p-radioButton>
+            <label [for]="times.key" class="ml-2">{{ times.name }}</label>
+          </div>
+        </div>
+
+        <div class="flex justify-between items-end flex-col">
+          <p class="text-2xl text-blue-800 font-bold">
+            Total:
+            <span>{{
+              handleTotal(myForm.value.numberGuests, item.price) | currency
+            }}</span>
+          </p>
+          <span *ngIf="myForm.value.numberGuests >= 4" class="text-blue-400"
+            >Descuento por cantidad aplicado!</span
+          >
+        </div>
+      </div>
+      <div
+        class="card flex flex-col justify-content-center"
+        validar
+        validacionInicial="false"
+      >
+        <label for="number-input">Observaciones:</label>
+        <textarea
+          rows="5"
+          cols="30"
+          pInputTextarea
+          formControlName="observations"
+          placeholder="Ingrese lo que debamos tener en cuenta..."
+        ></textarea>
+      </div>
+      <div class="flex justify-content-end gap-2 mt-5">
+        <button
+          class="bg-gray-500 text-white font-bold rounded-md px-4 py-2"
+          (click)="visible = false"
+          type="button"
+        >
+          Cancelar
+        </button>
+        <button
+          class="bg-blue-500 text-white font-bold rounded-md px-4 py-2"
+          [disabled]="myForm.invalid"
+          type="submit"
+        >
+          Agregar
+        </button>
+      </div>
+    </form>
+  </div>
+</p-dialog>

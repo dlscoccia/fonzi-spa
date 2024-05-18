@@ -1,0 +1,115 @@
+<section>
+  <div class="flex flex-col md:flex-row surface-section text-800">
+    <section>
+      <div class="flex flex-col md:flex-row items-center justify-center">
+        <form
+          autocomplete="off"
+          [formGroup]="myForm"
+          (ngSubmit)="register()"
+          class="w-full h-96 flex justify-center gap-5 mb-5"
+        >
+          <div class="flex flex-col items-center justify-evenly">
+            <h1 class="text-2xl text-blue-600 font-bold text-center mt-10 mb-3">
+              Crea tu cuenta
+            </h1>
+
+            <div class="flex flex-col gap-4">
+              <div
+                class="flex flex-col my-4"
+                validar
+                class="border-1 border-blue-600 rounded-md"
+              >
+                <span class="p-float-label">
+                  <input
+                    pInputText
+                    id="name"
+                    formControlName="name"
+                    class="px-4 py-2"
+                  />
+                  <label htmlFor="name">Nombre</label>
+                </span>
+              </div>
+              <div
+                class="flex flex-col my-4"
+                validar
+                class="border-1 border-blue-600 rounded-md"
+              >
+                <span class="p-float-label">
+                  <input
+                    pInputText
+                    id="username"
+                    formControlName="email"
+                    class="px-4 py-2"
+                    [email]="true"
+                  />
+                  <label htmlFor="username">Correo</label>
+                </span>
+              </div>
+              <div
+                class="flex flex-col my-4"
+                validar
+                class="border-1 border-blue-600 rounded-md"
+              >
+                <span class="p-float-label">
+                  <input
+                    pInputText
+                    id="username"
+                    formControlName="password"
+                    class="px-4 py-2"
+                    type="password"
+                  />
+                  <label htmlFor="password">Contraseña</label>
+                </span>
+              </div>
+              <div
+                class="flex flex-col my-4"
+                validar
+                class="border-1 border-blue-600 rounded-md"
+              >
+                <span class="p-float-label">
+                  <input
+                    pInputText
+                    id="username"
+                    formControlName="confirmPassword"
+                    class="px-4 py-2"
+                    type="password"
+                  />
+                  <label htmlFor="confirmPassword">Confirmar contraseña</label>
+                </span>
+              </div>
+            </div>
+
+            <div class="">
+              <div class="">
+                <div class=""></div>
+                <button
+                  class="bg-blue-500 text-white font-bold rounded-md px-4 py-2 my-5"
+                  type="submit"
+                >
+                  Registrarese
+                </button>
+              </div>
+            </div>
+
+            <div class="flex gap-2">
+              <p class="text-blue-500 text-lg">¿Ya tienes cuenta?</p>
+              <a
+                routerLink="/auth/ingresar"
+                class="text-blue-700 text-lg hover:text-blue-900 hover:underline"
+                >Ingresa aquí</a
+              >
+            </div>
+          </div>
+        </form>
+        <div class="col-12 md:col-6 overflow-hidden">
+          <img
+            src="../../../assets/images/register-bg.jpg"
+            alt="bg"
+            class="md:ml-auto block md:h-full"
+            style="clip-path: polygon(8% 0, 100% 0%, 100% 100%, 0 100%)"
+          />
+        </div>
+      </div>
+    </section>
+  </div>
+</section>

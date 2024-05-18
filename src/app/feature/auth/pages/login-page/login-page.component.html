@@ -1,0 +1,78 @@
+<section>
+  <div class="flex flex-col md:flex-row surface-section text-800">
+    <section>
+      <div class="flex flex-col md:flex-row items-center justify-center">
+        <form
+          autocomplete="off"
+          [formGroup]="myForm"
+          (ngSubmit)="login()"
+          class="w-full h-96 flex justify-center gap-5"
+        >
+          <div class="flex flex-col items-center justify-evenly">
+            <h1 class="text-2xl text-blue-600 font-bold text-center mt-10">
+              Ingresa a tu cuenta
+            </h1>
+
+            <div class="flex flex-col gap-5">
+              <div
+                class="flex flex-col my-4"
+                validar
+                class="border-1 border-blue-600 rounded-md"
+              >
+                <span class="p-float-label">
+                  <input
+                    pInputText
+                    id="username"
+                    formControlName="email"
+                    class="px-4 py-2"
+                  />
+                  <label htmlFor="username">Usuario</label>
+                </span>
+              </div>
+              <div
+                class="flex flex-col my-4"
+                validar
+                class="border-1 border-blue-600 rounded-md"
+              >
+                <span class="p-float-label">
+                  <input
+                    pInputText
+                    id="username"
+                    formControlName="password"
+                    class="px-4 py-2"
+                  />
+                  <label htmlFor="username">Contraseña</label>
+                </span>
+              </div>
+            </div>
+
+            <div class="">
+              <div class="">
+                <div class=""></div>
+                <button
+                  class="bg-blue-500 text-white font-bold rounded-md px-4 py-2"
+                  type="submit"
+                >
+                  Ingresar
+                </button>
+              </div>
+            </div>
+
+            <div class="flex gap-2">
+              <p class="text-blue-500 text-lg" >¿No tienes cuenta?</p>
+              <a routerLink="/auth/registro" class="text-blue-700 text-lg hover:text-blue-900 hover:underline">Crea una aquí</a>
+            </div>
+          </div>
+        </form>
+        <div class="col-12 md:col-6 overflow-hidden">
+          <img
+            src="../../../assets/images/cat-bg.jpg"
+            alt="bg"
+            class="md:ml-auto block md:h-full"
+            style="clip-path: polygon(8% 0, 100% 0%, 100% 100%, 0 100%)"
+          />
+        </div>
+      </div>
+    </section>
+  </div>
+</section>

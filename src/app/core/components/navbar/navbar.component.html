@@ -1,0 +1,11 @@
+<div class="flex w-full justify-between items-center bg-blue-500 px-10 text-white h-20">
+    <a href="/inicio" class="flex items-center"><img src="../../../../assets/svg/logo.svg" alt="logo" /><span class="text-white text-3xl font-mono hidden sm:visible">Fonzi'Spa</span></a>
+  <nav class="flex gap-2 sm:gap-5 items-center">
+    <div class="card flex justify-content-center">
+    <p-toast></p-toast>
+    <p-menu #menu [model]="menuItems" [popup]="true"></p-menu>
+    <button pButton type="button" (click)="menu.toggle($event)" icon="pi pi-bars" label=""></button>
+  </div>
+  <app-shopping-cart></app-shopping-cart>
+</nav>
+</div>

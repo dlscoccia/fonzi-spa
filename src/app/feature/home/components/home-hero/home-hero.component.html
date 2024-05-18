@@ -1,0 +1,26 @@
+<section>
+  <div  *ngIf="!closeBanner" class="bg-bluegray-900 text-gray-100 p-3 flex justify-evenly items-center w-full">
+    <div class="font-bold mr-8">🔥 {{heroBanner.action}}</div>
+    <div class="items-center">
+      <span class="line-height-3">{{heroBanner.title}}</span>
+    </div>
+    <a pRipple class="flex items-center no-underline justify-center border-circle text-gray-50 hover:bg-bluegray-700 cursor-pointer transition-colors transition-duration-150" style="width:2rem; height: 2rem" (click)="handleCloseBanner()">
+      <i class="pi pi-times"></i>
+    </a>
+  </div>
+  <div class="flex flex-col md:flex-row surface-section text-800">
+    <div class="col-12 md:col-6 p-6 text-center md:text-left flex align-items-center ">
+        <section>
+            <span class="block text-6xl font-bold mb-1">{{heroInfo.title}}</span>
+            <div class="text-6xl text-primary font-bold mb-3">{{heroInfo.subtitle}}</div>
+            <p class="mt-0 mb-4 text-700 line-height-3">{{heroInfo.subInfo}}.</p>
+
+            <button (click)="handleActionButton()" pButton pRipple label="Reservaciones" type="button" class="mr-3 p-button-raised"></button>
+          </section>
+        </div>
+    <div class="col-12 md:col-6 overflow-hidden">
+      <img src="../../../assets/images/dog-bg.jpg" alt="bg" class="md:ml-auto block md:h-full" style="clip-path: polygon(8% 0, 100% 0%, 100% 100%, 0 100%)">
+    </div>
+  </div>
+
+</section>

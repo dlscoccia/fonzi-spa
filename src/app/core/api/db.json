@@ -1,0 +1,266 @@
+{
+  "services": [
+    {
+      "id": "1",
+      "name": "Corte y Estilizado",
+      "subTitle": "Siempre a la moda.",
+      "price": 50000,
+      "description": "Un corte completo y estilizado profesional para tu mascota, adaptado a su raza, tus preferencias y con el cuidado que requiere",
+      "image": "./assets/images/cut-service.jpg"
+    },
+    {
+      "id": "2",
+      "name": "Baño Terapéutico",
+      "subTitle": "Limpieza total.",
+      "price": 35000,
+      "description": "Baño con productos hipoalergénicos y acondicionadores que dejan el pelaje suave y brillante.",
+      "image": "./assets/images/bath-service.jpg"
+    },
+    {
+      "id": "3",
+      "name": "Masaje Relajante",
+      "subTitle": "Elimina el estres.",
+      "price": 60000,
+      "description": "Masaje que ayuda a reducir el estrés y la ansiedad de tu mascota, promoviendo una sensación de bienestar.",
+      "image": "./assets/images/massage-service.jpg"
+    },
+    {
+      "id": "4",
+      "name": "Alojamiento de Lujo",
+      "subTitle": "Descanso de reyes.",
+      "price": 120000,
+      "description": "Estadía en nuestras instalaciones de lujo, incluyendo paseos, alimentación premium y atención constante.",
+      "image": "./assets/images/hotel-service.jpg"
+    },
+    {
+      "id": "5",
+      "name": "Manicura y Pedicura",
+      "subTitle": "No más rasguños",
+      "price": 20000,
+      "description": "Corte y limado de uñas. Con limpieza de almohadillas, aplicación de bálsamo hidratante y vitamína C.",
+      "image": "./assets/images/manicure-service.jpg"
+    },
+    {
+      "id": "6",
+      "name": "Sesión de Juegos",
+      "subTitle": "Que empiecen los juegos",
+      "price": 25000,
+      "description": "Sesión supervisada de juegos y socialización con otras mascotas, ideal para mejorar las habilidades sociales de tu amigo peludo.",
+      "image": "./assets/images/playground-service.jpeg"
+    }
+  ],
+  "users": [
+    {
+      "_id": 1,
+      "username": "user1@adn.com",
+      "password": "pass123",
+      "email": "user1@example.com",
+      "id": "37b6"
+    },
+    {
+      "id": "1498",
+      "name": "Fonzi",
+      "password": "fonzi@fonzi.com",
+      "username": "asd123"
+    },
+    {
+      "id": "8e3d",
+      "name": "Fonzi",
+      "password": "asd123",
+      "username": "fonzi@fonzi.com"
+    }
+  ],
+  "tokens": [
+    {
+      "id": "6d16",
+      "token": "e30="
+    },
+    {
+      "id": "5078",
+      "token": "e30="
+    }
+  ],
+  "installations": [
+    {
+      "id": "1",
+      "title": "Sala de Juegos",
+      "description": "Un espacio amplio y seguro donde tus mascotas pueden jugar y socializar con otros amigos peludos.",
+      "image": "./assets/images/playground.jpg"
+    },
+    {
+      "id": "2",
+      "title": "Sala de Aseo",
+      "description": "Equipada con lo último en tecnología de baño y grooming para garantizar que tu mascota luzca y se sienta bien.",
+      "image": "./assets/images/bath-area.jpg"
+    },
+    {
+      "id": "3",
+      "title": "Sala de Descanso",
+      "description": "Un área tranquila y cómoda diseñada para que las mascotas descansen y se relajen después de un día activo.",
+      "image": "./assets/images/rest-area.jpg"
+    },
+    {
+      "id": "4",
+      "title": "Área de Alimentación",
+      "description": "Una zona dedicada a la nutrición donde servimos alimentos balanceados y frescos adecuados para cada tipo de mascota.",
+      "image": "./assets/images/food-area.jpg"
+    },
+    {
+      "id": "5",
+      "title": "Clínica Veterinaria",
+      "description": "Contamos con instalaciones médicas en el sitio para chequeos de salud regulares y atención de emergencia.",
+      "image": "./assets/images/clinic-area.jpg"
+    },
+    {
+      "id": "6",
+      "title": "Piscina para Mascotas",
+      "description": "Una piscina especialmente diseñada para que las mascotas se diviertan y ejerciten de manera segura bajo supervisión.",
+      "image": "./assets/images/pool-area.jpg"
+    }
+  ],
+  "home-texts": {
+    "info": {
+      "title": "Tú tranquilo, ellos felices",
+      "subTitle": "Trabaja sin preocupaciones. Tenemos planes por días, semanas e inclusos full days para quepuedas relajarte. Ellos estarán seguros.",
+      "options": [
+        {
+          "icon": "pi pi-star",
+          "title": "Bienestar",
+          "description": "Su seguridad y tranquilidad es lo más importante. En nuestro spa, cada mascota recibe atención personalizada para asegurar su bienestar físico y emocional."
+        },
+        {
+          "icon": "pi pi-palette",
+          "title": "Diversión",
+          "description": "No somos una guardería. Somos su lugar seguro de juegos y desestrés. Contamos con instalaciones especialmente diseñadas para que su mascota se divierta y socialice en un ambiente controlado y seguro."
+        },
+        {
+          "icon": "pi pi-heart-fill",
+          "title": "Familia",
+          "description": "Desde que pisan Fonzi'Spa, todos son parte de nuestra gran familia. Tratamos a cada mascota como si fuera nuestra, con amor y dedicación."
+        },
+        {
+          "icon": "pi pi-lock",
+          "title": "Seguridad",
+          "description": "La seguridad es nuestra prioridad. Nuestras instalaciones están equipadas con la última tecnología para garantizar un entorno seguro para todas las mascotas."
+        },
+        {
+          "icon": "pi pi-home",
+          "title": "Higiene",
+          "description": "Nuestras instalaciones son cuidadas hasta el ultimo detalle para garantizar una expeciencia increible y segura."
+        },
+        {
+          "icon": "pi pi-sparkles",
+          "title": "Experiencia",
+          "description": "Contamos con amplia experiencia en el sector, por lo que tus mascotas estarán en las majores manos."
+        }
+      ]
+    },
+    "banner": {
+      "action": "Oferta flash!",
+      "title": "Aprovecha nuestras ofertas en reservaciones de grupos!"
+    },
+    "hero": {
+      "title": "Todo lo que tu peludo necesita",
+      "subtitle": "¡El lugar preferido de tus mascotas!",
+      "subInfo": "Somos Fonzi'Spa, el espacio donde tus peludos prodrán disfrutar de la manera más segura y divertida."
+    },
+    "contact": {
+      "title": "¿Deseas hablar con un asesor?",
+      "subTitle": "Estamos aqui para resolver tus dudas!",
+      "button": "Contactar"
+    }
+  },
+  "reservations": [
+    {
+      "id": "72dc",
+      "reservation": [
+        {
+          "numberGuests": 2,
+          "date": "05/23/2024",
+          "time": "08:00 AM",
+          "observations": "",
+          "id": "4b8ea7f4-d9ce-43d5-91bf-ef8fd3bde20d",
+          "total": 120000,
+          "name": "Masaje Relajante"
+        },
+        {
+          "numberGuests": 2,
+          "date": "05/31/2024",
+          "time": "02:00 PM",
+          "observations": "",
+          "id": "b94b58bb-b651-4479-a64a-027286e45df7",
+          "total": 240000,
+          "name": "Alojamiento de Lujo"
+        },
+        {
+          "numberGuests": 3,
+          "date": "2024-05-23T04:00:00.000Z",
+          "time": "09:00 AM",
+          "observations": "",
+          "id": "f7c0068b-b0fb-445d-bb34-3996cc0ebbbb",
+          "total": 105000,
+          "name": "Baño Terapéutico"
+        },
+        {
+          "numberGuests": 1,
+          "date": "05/23/2024",
+          "time": "01:00 PM",
+          "observations": "",
+          "id": "b57a6148-858c-4d43-988a-37c3215fc679",
+          "total": 60000,
+          "name": "Masaje Relajante"
+        }
+      ]
+    },
+    {
+      "id": "f7dd",
+      "reservation": [
+        {
+          "numberGuests": 2,
+          "date": "05/23/2024",
+          "time": "04:00 PM",
+          "observations": "",
+          "id": "4b8ea7f4-d9ce-43d5-91bf-ef8fd3bde20d",
+          "total": 120000,
+          "name": "Masaje Relajante"
+        },
+        {
+          "numberGuests": 2,
+          "date": "05/31/2024",
+          "time": "03:00 PM",
+          "observations": "",
+          "id": "b94b58bb-b651-4479-a64a-027286e45df7",
+          "total": 240000,
+          "name": "Alojamiento de Lujo"
+        },
+        {
+          "numberGuests": 3,
+          "date": "05/23/2024",
+          "time": "09:00 AM",
+          "observations": "",
+          "id": "f7c0068b-b0fb-445d-bb34-3996cc0ebbbb",
+          "total": 105000,
+          "name": "Baño Terapéutico"
+        },
+        {
+          "numberGuests": 1,
+          "date": "05/22/2024",
+          "time": "02:00 PM",
+          "observations": "",
+          "id": "b57a6148-858c-4d43-988a-37c3215fc679",
+          "total": 60000,
+          "name": "Masaje Relajante"
+        },
+        {
+          "numberGuests": 2,
+          "date": "05/23/2024",
+          "time": "02:00 PM",
+          "observations": "",
+          "id": "f0e75fe5-2f83-4a8f-a538-8057f0ff8365",
+          "total": 70000,
+          "name": "Baño Terapéutico"
+        }
+      ]
+    }
+  ]
+}
